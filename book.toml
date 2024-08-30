@@ -1,0 +1,8 @@
+[book]
+authors = ["iamzhz"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Thinking of `Abandon`"
+[output.html]
+mathjax-support = true
