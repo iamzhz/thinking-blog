@@ -1,8 +1,10 @@
 # 截止目前所有的上下文无关文法
 ```
 Expr -> Assign
-Assign -> Add Assign'
-Assign' -> = Add Assign' | ε
+Assign -> Compare Assign'
+Assign' -> = Compare Assign' | ε
+Compare -> Add Compare'
+Compare' -> == Add Compare' | > Add Compare' | < Add Compare' | >= Add Compare' | <= Add Compare' | != Add Compare' | ε
 Add   -> Term Expr'
 Add'  -> + Term Expr' | - Term Expr' | ε
 Term   -> Factor Term'
@@ -11,12 +13,12 @@ Factor -> ( Expr ) | Int
 ExprList -> Expr ExprList' | ε
 ExprList' -> , Expr ExprList' | ε
 FunctionCall -> @ Id ( ExprList )
-Sentence -> Expr ; | If | Else
+Sentence -> Expr ; | If | Else | While | DoWhile | For | Break | Continue | Return | DefineVariable ;
 Sentences -> Sentence Sentences | Sentence
 Statements -> { Sentences } | Sentence
 
 DefineFuction -> fn Type Id ( ExprList ) Statements
-DefineVariable -> Type Id ;
+DefineVariable -> Type Id
 
 If -> if ( Expr ) Statements
 Else -> else Statements

@@ -115,3 +115,11 @@ abandon: src/*.cc src/*/*.cc
 	$(cc) $^ -o $@ $(std) -g -finput-charset=UTF-8 -fexec-charset=GBK
 ```
 完美
+
+## 2024/8/31 更新
+对应 Windows，又有一种新方法：
+可以不修改 makefile，保持二进制文件的编码为 UTF-8，在运行程序前，使用
+```
+chcp 65001
+```
+将当前命令行编码切换为 UTF-8，这样就可以顺利地 run 了
