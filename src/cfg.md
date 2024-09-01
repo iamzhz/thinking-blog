@@ -9,11 +9,11 @@ Add   -> Term Expr'
 Add'  -> + Term Expr' | - Term Expr' | ε
 Term   -> Factor Term'
 Term'  -> * Factor Term' | / Factor Term' | ε
-Factor -> ( Expr ) | Int
+Factor -> ( Expr ) | Int | DefineVariable
 ExprList -> Expr ExprList' | ε
 ExprList' -> , Expr ExprList' | ε
 FunctionCall -> @ Id ( ExprList )
-Sentence -> Expr ; | If | Else | While | DoWhile | For | Break | Continue | Return | DefineVariable ;
+Sentence -> Expr ; | If | Else | While | DoWhile | For | Break | Continue | Return
 Sentences -> Sentence Sentences | Sentence
 Statements -> { Sentences } | Sentence
 
